@@ -34,7 +34,7 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   {% for cat in cr.category.all %}
-                  <h4>{{ cat.title }}</h4>
+                  <h4><a href = {% url 'course:course_cname' cname=cat.title %}>{{ cat.title }}</a></h4>
                   {% endfor %}
                   <p class="price">{{cr.price}}</p>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src={{cr.trainer.image.url}} class="img-fluid" alt="">
-                    <span>{{cr.trainer.info.username}}</span>
+                    <span><a href= {% url 'course:course_trainer' trainer=cr.trainer.info.username %}>{{cr.trainer.info.username}}</a></span>
                   </div>
                   <div class="trainer-rank d-flex align-items-center">
                     <i class="bx bx-user"></i>&nbsp;{{cr.counted_views}}
